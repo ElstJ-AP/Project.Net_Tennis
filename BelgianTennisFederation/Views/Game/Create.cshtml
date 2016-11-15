@@ -1,0 +1,96 @@
+﻿@model TennisDomain.Classes.Game
+
+@{
+    ViewBag.Title = "Create Game";
+}
+
+<h2>Create game</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Game</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Player1Id, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                <select name="Player1Id" class="js-data-fetch_players" style="width:40%;"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Player2Id,htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                <select name="Player2Id" class="js-data-fetch_players" style="width:40%;"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Set 1</label>
+            <div class="col-md-2">
+                <input type="text" name="Player1Set1">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="Player2Set1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Set 2</label>
+            <div class="col-md-2">
+                <input type="text" name="Player1Set2">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="Player2Set2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Set 3</label>
+            <div class="col-md-2">
+                <input type="text" name="Player1Set3">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="Player2Set3">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Set 4</label>
+            <div class="col-md-2">
+                <input type="text" name="Player1Set4">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="Player2Set4">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-3">Set 5</label>
+            <div class="col-md-2">
+                <input type="text" name="Player1Set5">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="Player2Set5">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

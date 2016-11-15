@@ -1,0 +1,4 @@
+C:\Users\Jonas\documents\visual studio 2013\Projects\TennisDomain.Classes\TennisDomain.Classes\bin\Debug\TennisDomain.Classes.dll
+C:\Users\Jonas\documents\visual studio 2013\Projects\TennisDomain.Classes\TennisDomain.Classes\bin\Debug\TennisDomain.Classes.pdb
+C:\Users\Jonas\documents\visual studio 2013\Projects\TennisDomain.Classes\TennisDomain.Classes\obj\Debug\TennisDomain.Classes.dll
+C:\Users\Jonas\documents\visual studio 2013\Projects\TennisDomain.Classes\TennisDomain.Classes\obj\Debug\TennisDomain.Classes.pdb

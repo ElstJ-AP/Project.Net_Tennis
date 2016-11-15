@@ -1,0 +1,122 @@
+﻿@model TennisDomain.Classes.Player
+
+@{
+    ViewBag.Title = "Delete player";
+}
+
+<h2>Delete player</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinYear)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FederationNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FederationNr)
+        </dd>
+    </dl>
+
+    <div style="margin-bottom: 8px;">This will also delete all the games and fines that involve the player</div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

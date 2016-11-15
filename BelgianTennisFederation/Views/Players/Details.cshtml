@@ -1,0 +1,267 @@
+﻿@model TennisDomain.Classes.Player
+
+@{
+    ViewBag.Title = "Player details";
+}
+
+<h2>Player details</h2>
+
+<div>
+    <h4>Player</h4>
+    <hr />
+    <dl class="dl-horizontal col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinYear)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HouseNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HouseNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FederationNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FederationNr)
+        </dd>
+    </dl>
+    <div class="row">
+        <dl class="dl-horizontal col-md-6">
+            <dt>
+                Teams/Divisions
+            </dt>
+
+            <dd>
+                <table class="pure-table pure-table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Team
+                            </th>
+                            <th>
+                                Division
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model.PlayerTeamDivisions)
+                    {
+                        <tr>
+                            <td>
+                                @item.Team.Name
+                            </td>
+                            <td>
+                                @item.Division.Name
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </dd>
+
+        </dl>
+        <dl class="dl-horizontal col-md-6">
+            <dt>
+                @Html.DisplayNameFor(model => model.Roles)
+            </dt>
+
+            <dd>
+                <table class="pure-table pure-table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Roles)
+                    {
+                        <tr>
+                            <td>
+                                @item.Name
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+            </dd>
+
+        </dl>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            Games
+        </dt>
+
+        <dd>
+            <table class="pure-table pure-table-bordered" style="margin-bottom:8px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Player 1
+                        </th>
+                        <th>
+                            Player 1 Score
+                        </th>
+                        <th>
+                            Player 2 Score
+                        </th>
+                        <th>
+                            Player 2
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.Player1Games)
+                {
+                    <tr>
+                        <td>
+                            @item.Player1.NameNumber
+                        </td>
+                        <td>
+                            @item.Player1Score
+                        </td>
+                        <td>
+                            @item.Player2Score
+                        </td>
+                        <td>
+                            @item.Player2.NameNumber
+                        </td>
+                    </tr>
+                }
+                @foreach (var item in Model.Player2Games)
+                {
+                    <tr>
+                        <td>
+                            @item.Player1.NameNumber
+                        </td>
+                        <td>
+                            @item.Player1Score
+                        </td>
+                        <td>
+                            @item.Player2Score
+                        </td>
+                        <td>
+                            @item.Player2.NameNumber
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </dd>
+        <dt>
+            Fines
+        </dt>
+        <dd>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model.Fines)
+                {
+                    <tr>
+                        <td>
+                            @item.FineDate.ToShortDateString()
+                        </td>
+                        <td>
+                            € @item.Amount
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </dd>
+    </dl>
+</div>
+<p class="col-md-12">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

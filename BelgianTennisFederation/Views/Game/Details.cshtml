@@ -1,0 +1,72 @@
+﻿@model TennisDomain.Classes.Game
+
+@{
+    ViewBag.Title = "Game details";
+}
+
+<h2>Game details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Player1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player1.NameNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Player2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Player2.NameNumber)
+        </dd>
+
+        <dt>
+            Score
+        </dt>
+
+        <dd>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            Player 1
+                        </th>
+                        <th>
+                            Player 2
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <tr>
+                        <td>
+                            Set @i
+                        </td>
+                        <td>
+                            @Model.Player1ScoreArray[i-1]
+                        </td>
+                        <td>
+                            @Model.Player2ScoreArray[i - 1]
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

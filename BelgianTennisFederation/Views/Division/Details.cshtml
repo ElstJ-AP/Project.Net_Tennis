@@ -1,0 +1,58 @@
+﻿@model TennisDomain.Classes.Division
+
+@{
+    ViewBag.Title = "Division details";
+}
+
+<h2>Division details</h2>
+
+<div>
+    <h4>Division</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Players/Teams
+        </dt>
+
+        <dd>
+            <table class="pure-table pure-table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Player
+                        </th>
+                        <th>
+                            Team
+                        </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model.PlayerTeamDivisions)
+                {
+                    <tr>
+                        <td>
+                            @item.Player.NameNumber
+                        </td>
+                        <td>
+                            @item.Team.Name
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

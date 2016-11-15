@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TennisDomain.Classes.Game>
+
+@{
+    ViewBag.Title = "Game overview";
+}
+
+<h2>Game overview</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="pure-table pure-table-horizontal" width="100%">
+    <thead>
+        <tr>
+            <th>
+                Player 1
+            </th>
+            <th>
+                Player 2
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player1Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Player2Score)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player1.NameNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player2.NameNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player1Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Player2Score)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
